@@ -1,0 +1,96 @@
+{
+    "name": "SalesPipeline",
+    "objectId": "3d73759b-b970-4dc0-a62a-54bd3035e5ae",
+    "properties": {
+        "activities": [
+            {
+                "name": "Copy Sales data",
+                "type": "Copy",
+                "dependsOn": [],
+                "policy": {
+                    "timeout": "0.12:00:00",
+                    "retry": 0,
+                    "retryIntervalInSeconds": 30,
+                    "secureOutput": false,
+                    "secureInput": false
+                },
+                "typeProperties": {
+                    "source": {
+                        "type": "JsonSource",
+                        "storeSettings": {
+                            "type": "HttpReadSettings",
+                            "requestMethod": "GET"
+                        },
+                        "formatSettings": {
+                            "type": "JsonReadSettings"
+                        },
+                        "datasetSettings": {
+                            "annotations": [],
+                            "type": "Json",
+                            "typeProperties": {
+                                "location": {
+                                    "type": "HttpServerLocation",
+                                    "relativeUrl": "ck/retail_raw_data_560.json"
+                                }
+                            },
+                            "schema": {},
+                            "externalReferences": {
+                                "connection": "dfb264b3-2d06-4498-ab52-667ae3b03da1"
+                            }
+                        }
+                    },
+                    "sink": {
+                        "type": "ParquetSink",
+                        "storeSettings": {
+                            "type": "LakehouseWriteSettings"
+                        },
+                        "formatSettings": {
+                            "type": "ParquetWriteSettings",
+                            "enableVertiParquet": true
+                        },
+                        "datasetSettings": {
+                            "annotations": [],
+                            "linkedService": {
+                                "name": "Sales_Analytics",
+                                "properties": {
+                                    "annotations": [],
+                                    "type": "Lakehouse",
+                                    "typeProperties": {
+                                        "workspaceId": "be329cad-a559-4528-9b6b-5d972ef15bb3",
+                                        "artifactId": "dfe7614f-2f06-4ac2-a1e6-1d616a436ec4",
+                                        "rootFolder": "Files"
+                                    }
+                                }
+                            },
+                            "type": "Parquet",
+                            "typeProperties": {
+                                "location": {
+                                    "type": "LakehouseLocation",
+                                    "folderPath": "BronzeLayer"
+                                },
+                                "compressionCodec": "snappy"
+                            },
+                            "schema": []
+                        }
+                    },
+                    "enableStaging": false,
+                    "translator": {
+                        "type": "TabularTranslator",
+                        "typeConversion": true,
+                        "typeConversionSettings": {
+                            "allowDataTruncation": true,
+                            "treatBooleanAsNumber": false
+                        },
+                        "columnFlattenSettings": {
+                            "treatArrayAsString": false,
+                            "treatStructAsString": false,
+                            "flattenColumnDelimiter": "."
+                        }
+                    }
+                }
+            }
+        ],
+        "lastModifiedByObjectId": "d7db822b-da7f-4e57-a9a6-21ed19267f6c",
+        "lastPublishTime": "2026-02-15T22:52:49Z"
+    }
+}
