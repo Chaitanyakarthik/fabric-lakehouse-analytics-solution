@@ -103,7 +103,6 @@ Executive Sales Dashboard
 
 This dashboard provides an interactive analytical view of revenue performance, order trends, and segmentation.
 
-![Dashboard Overview](snapshots/dashboard.png)
 🧠 Key Learnings
 ✔ End-to-end Lakehouse pipeline design
 ✔ API-based data ingestion techniques
