@@ -137,20 +137,13 @@ KPI Reporting
 Interactive Data Visualization
 🎯 Role Alignment
 
-This project aligns strongly with:
 
-✔ Data Engineer
-✔ Analytics Engineer
-✔ Business Intelligence Developer
-✔ Microsoft Fabric Engineer
-✔ Cloud Data Engineer
-👨‍💻 About the Author
+
+
 
 Chaitanya Karthik
-Management Information Systems | Data Engineering | Cloud Analytics
 
-🔗 LinkedIn
-https://www.linkedin.com/in/chaitanya-karthik-t/
+
 
 ⭐ Final Note
 
