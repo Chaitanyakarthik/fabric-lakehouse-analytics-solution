@@ -135,13 +135,11 @@ Business Intelligence
 Power BI Dashboard Design
 KPI Reporting
 Interactive Data Visualization
-🎯 Role Alignment
 
 
 
-
-
-Chaitanya Karthik
+ 
+Tavanati Chaitanya Karthik
 
 
 
